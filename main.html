@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Responsive Image Gallery</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <h2 class="heading-text">Responsive <span>Image Gallery</span></h2>
+        <ul class="image-gallery">
+            <li>
+                <img src="https://source.unsplash.com/VWcPlbHglYc" alt="" />
+          <div class="overlay"><span>Image title</span></div>
+        </li>
+        <li>
+          <img src="https://source.unsplash.com/e6FMMambeO4" alt="" />
+          <div class="overlay"><span>Image title</span></div>
+        </li>
+        <li>
+          <img src="https://source.unsplash.com/klCiPmzUw0Y" alt="" />
+          <div class="overlay"><span>Image title</span></div>
+        </li>
+        <li>
+          <img src="https://source.unsplash.com/IdNOTjPeHrE" alt="" />
+          <div class="overlay"><span>Image title</span></div>
+        </li>
+        <li>
+          <img src="https://source.unsplash.com/O0N9MF--hK4" alt="" />
+          <div class="overlay"><span>Image title</span></div>
+        </li>
+        <li>
+          <img src="https://source.unsplash.com/FV3GConVSss" alt="" />
+          <div class="overlay"><span>Image title</span></div>
+        </li>
+        <li>
+          <img src="https://source.unsplash.com/0ESjL-Nw22Y" alt="" />
+          <div class="overlay"><span>Image title</span></div>
+        </li>
+        <li>
+          <img src="https://source.unsplash.com/KTVn62x6fFw" alt="" />
+          <div class="overlay"><span>Image title</span></div>
+        </li>
+
+        <li>
+          <img src="https://source.unsplash.com/VSeVhmW4_JQ" alt="" />
+          <div class="overlay"><span>Image title</span></div>
+        </li>
+        <li>
+          <img src="https://source.unsplash.com/07aFaTf24Kg" alt="" />
+          <div class="overlay"><span>Image title</span></div>
+        </li>
+        <li>
+          <img src="https://source.unsplash.com/DqyYTM7pR2o" alt="" />
+          <div class="overlay"><span>Image title</span></div>
+            </li>
+            <!-- Add more image items here -->
+        </ul>
+    </div>
+
+    <div class="popup-container" id="popupContainer">
+        <div class="popup-content" id="popupContent">
+            <img src="" alt="Popup Image" class="popup-image" id="popupImage">
+            <div class="popup-details" id="popupDetails"></div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code
+        const galleryItems = document.querySelectorAll('.image-gallery li');
+        const popupContainer = document.getElementById('popupContainer');
+        const popupContent = document.getElementById('popupContent');
+        const popupImage = document.getElementById('popupImage');
+        const popupDetails = document.getElementById('popupDetails');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                const imgAlt = item.querySelector('img').alt;
+                const imgTitle = item.querySelector('.overlay span').textContent;
+
+                // Set the content of the popup
+                popupImage.src = imgSrc;
+                popupImage.alt = imgAlt;
+                popupDetails.innerHTML = `<span>${imgTitle}</span>`; // Using innerHTML to add a span element
+
+                // Show the popup
+                popupContainer.style.display = 'flex';
+            });
+        });
+
+        popupContainer.addEventListener('click', (event) => {
+            if (event.target === popupContainer) {
+                // Close the popup when clicking outside the content
+                popupContainer.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
