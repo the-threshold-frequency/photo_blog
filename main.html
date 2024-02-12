@@ -374,7 +374,7 @@
       const popupContent = document.getElementById('popupContent');
       const popupImage = document.getElementById('popupImage');
       const popupDetails = document.getElementById('popupDetails');
-      const loadingIndicator = document.getElementById('loadingIndicator');
+
   
       galleryItems.forEach(item => {
           item.addEventListener('click', () => {
@@ -382,17 +382,12 @@
               const imgAlt = item.querySelector('img').alt;
               const imgTitle = item.querySelector('.overlay span').textContent;
   
-              // Show the loading indicator
-              loadingIndicator.style.display = 'block';
   
               // Set the content of the popup
               popupImage.src = imgSrc;
               popupImage.alt = imgAlt;
               popupDetails.innerHTML = `<span>${imgTitle}</span>`; // Using innerHTML to add a span element
   
-              // Hide the loading indicator after a delay to simulate image loading
-              setTimeout(() => {
-                  loadingIndicator.style.display = 'none';
                   // Show the popup
                   popupContainer.style.display = 'flex';
               }, 1000); // You can adjust the delay as needed
